@@ -14,6 +14,9 @@ class WordPressBoilerplate{
 
 		/* JPEG Image Quality */
 		add_filter( 'jpeg_quality', function($arg){return 90;} );
+
+        /* Dashboard Columns */
+        add_action( 'admin_head-index.php', array(__CLASS__, 'dashboard_columns') );
 	}
 
     /**
@@ -130,6 +133,19 @@ class WordPressBoilerplate{
     public static function FrontendScripts(){
 		wp_enqueue_script( 'jquery' );
 	}
+
+    /**
+     * Dashboard Columns
+     */
+    public static function dashboard_columns(){
+        add_screen_option(
+            'layout_columns',
+            array(
+                'max'     => 4,
+                'default' => 2
+            )
+        );
+    }
 
 }
 

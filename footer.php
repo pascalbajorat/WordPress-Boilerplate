@@ -1,7 +1,7 @@
-        <script src="<?php bloginfo('template_url'); ?>/js/plugins.js"></script>
-        <script src="<?php bloginfo('template_url'); ?>/js/main.js"></script>
 
         <?php wp_footer(); ?>
+
+        <!-- Looking for plugins.js and main.js? Have a look at function.php WordPressBoilerplate::FrontendScripts() -->
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
@@ -10,7 +10,7 @@
             e=o.createElement(i);r=o.getElementsByTagName(i)[0];
             e.src='//www.google-analytics.com/analytics.js';
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');
+            ga('create','UA-XXXXX-X');ga('send','pageview');ga('set', 'anonymizeIp', true);
         </script>
     </body>
 </html>

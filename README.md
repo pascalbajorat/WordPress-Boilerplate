@@ -13,7 +13,7 @@ You will find all functions in the **functions.php** of this theme, please remov
 * Custom jQuery (v. 2.1.3) for your frontend.
 * Support for custom editor styles.
 * Supports defer loading for scripts.
-* Remove query strings from static ressources.
+* Remove query strings from static resources.
 * jpeg_quality filter.
 
 and some more, have a look at the functions.php
@@ -35,7 +35,7 @@ and also the features of the HTML5 Boilerplate itself count:
 * Extensive inline and accompanying documentation.
 
 ##Quick start
-Download the latest version of the WordPress HTML5 Boilerplate and copy the folder "WordPress-Boilerplate" (you can rename it) into your theme directory (/wp-content/themes/).
+Download the latest version of the WordPress HTML5 Boilerplate (https://github.com/pascalbajorat/WordPress-Boilerplate/releases) and copy the folder "WordPress-Boilerplate" (you can rename it) into your theme directory (/wp-content/themes/).
 Now open your WordPress backend and navigate to *Design > Themes* there you can activate the WordPress Boilerplate.
 
 Now you can use and customize your theme.

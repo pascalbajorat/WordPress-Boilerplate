@@ -32,7 +32,7 @@ class WordPressBoilerplate{
              * Here you can exclude plugins that cause problems with defer
              * e.G. syntaxhighlighter = SyntaxHighlighter Evolved
              */
-            if( strstr($tag, 'syntaxhighlighter') ) {
+            if( strstr($tag, 'syntaxhighlighter') || is_admin() ) {
                 return $tag;
             }
 
@@ -189,7 +189,7 @@ class WordPressBoilerplate{
     public static function removeScriptVersion($src)
     {
         // Exclude ressources from fonts.googleapis.com
-        if( strstr($src, 'fonts.googleapis.com') ) {
+        if( strstr($src, 'fonts.googleapis.com') || is_admin() ) {
             return $src;
         }
 

@@ -1,0 +1,128 @@
+// Rem output with px fallback
+@mixin font-size($sizeValue: 1) {
+	font-size: ($sizeValue * 16) * 1px;
+	font-size: $sizeValue * 1rem;
+}
+
+// Center block
+@mixin center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Clearfix
+@mixin clearfix() {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() {
+	clear: both;
+}
+
+
+// This is the default html and body font-size for the base rem value.
+$rem-base: 16px !default;
+
+// STRIP UNIT
+// It strips the unit of measure and returns it
+@function strip-unit($num) {
+	@return $num / ($num * 0 + 1);
+}
+
+// CONVERT TO REM
+@function convert-to-rem($value, $base-value: $rem-base)  {
+	$value: strip-unit($value) / strip-unit($base-value) * 1rem;
+	@if ($value == 0rem) { $value: 0; } // Turn 0rem into 0
+	@return $value;
+}
+
+@function rem-calc($values, $base-value: $rem-base) {
+	$max: length($values);
+
+	@if $max == 1 { @return convert-to-rem(nth($values, 1), $base-value); }
+
+	$remValues: ();
+	@for $i from 1 through $max {
+		$remValues: append($remValues, convert-to-rem(nth($values, $i), $base-value));
+	}
+	@return $remValues;
+}
+
+@mixin columns($cols:2, $gap:40px) {
+	-webkit-column-count: $cols;
+	-moz-column-count: $cols;
+	column-count: $cols;
+	-webkit-column-gap: $gap;
+	-moz-column-gap: $gap;
+	column-gap: $gap;
+}
+
+@mixin vertical-align {
+	position: relative;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+@mixin border-radius($radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-ms-border-radius: $radius;
+	-o-border-radius: $radius;
+	border-radius: $radius;
+}
+
+@mixin blur($blur:5px) {
+	-webkit-filter: blur($blur);
+	-moz-filter: blur($blur);
+	-o-filter: blur($blur);
+	-ms-filter: blur($blur);
+	filter: blur($blur);
+}
+
+@mixin transition($animate:all, $speed:300ms, $transition:ease-in-out) {
+	-webkit-transition: $animate $speed $transition;
+	-moz-transition: $animate $speed $transition;
+	-o-transition: $animate $speed $transition;
+	transition: $animate $speed $transition;
+}
+
+@mixin box-sizing($type:border-box){
+	-moz-box-sizing: $type;
+	-webkit-box-sizing: $type;
+	box-sizing: $type;
+}
+
+@mixin placeholder {
+	&::-webkit-input-placeholder {@content}
+	&:-moz-placeholder {@content}
+	&::-moz-placeholder {@content}
+	&:-ms-input-placeholder {@content}
+}
+
+
+@mixin fontAwesome_regular($char)
+{
+	font-family: 'Font Awesome 5 Free';
+	font-weight:400;
+	content: $char;
+}
+
+@mixin fontAwesome_brands($char)
+{
+	font-family: 'Font Awesome 5 Brands';
+	font-weight:400;
+	content: $char;
+}
+
+@mixin fontAwesome_solid($char)
+{
+	font-family: 'Font Awesome 5 Free';
+	font-weight:900;
+	content: $char;
+}

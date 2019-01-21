@@ -36,6 +36,8 @@
 ehthumbs.db
 Thumbs.db
 
-# PhpStorm Files #
-##################
+# PhpStorm and CodeKit 2 #
+##########################
 .idea
+.codekit-cache
+.sass-cache

@@ -1,0 +1,89 @@
+@import "normalize";
+@import "variables-site/colors";
+@import "variables-site/typography";
+@import "mixins/mixins-master";
+
+@import "site/primary/posts-and-pages";
+
+
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+body#tinymce {
+  font-size: rem-calc(20px)!important;
+  background: $color__background-body;
+  padding: 40px !important;
+  margin: 0 auto;
+  color: #000;
+  font-family: $font__main;
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: $font__line-height-body;
+  max-width: 765px;
+
+
+  h1, h2, h3, h4, h5, h6, p {
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+  }
+
+  h1 {
+    font-size:rem-calc(28px)!important;
+    margin:0 0 .5em 0;
+  }
+
+  h2 {
+    font-size:rem-calc(24px)!important;
+    font-family:$font__main;
+    margin:0;
+    float:left;
+    display:inline-block;
+    font-weight:normal;
+    text-transform:uppercase;
+    max-width:32%;
+    padding-right:5%;
+    line-height:1;
+  }
+
+  p {
+    margin:0 0 .5em 0;
+    font-family:$font__main;
+    line-height:1.2;
+    font-size: rem-calc(20px)!important;
+  }
+
+
+  a {
+    color:#007ed4;
+    text-decoration: underline!important;
+    @include transition();
+  }
+
+  small {
+    color: #000;
+    font-size: 0.8em;
+  }
+
+  a:hover {
+    color:#009cd4;
+    text-decoration:underline;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  pre {
+    color: #100;
+    background-color: #f9f9f9;
+    border: 1px solid silver;
+    margin: 0 0 1.5em 0;
+  }
+}

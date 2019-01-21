@@ -1,202 +1,167 @@
 <?php
+/**
+ * WordPress Boilerplate 2.0 functions and definitions
+ *
+ * @link https://developer.wordpress.org/themes/basics/theme-functions/
+ *
+ * @package WordPress_Boilerplate_2.0
+ */
 
-class WordPressBoilerplate{
-    static $ver = '2.0.0';
-    static $jQuery_in_Footer = true; // true or false
-    static $jQuery_Version = '2.1.3'; // 2.1.3 or 1.11.2
+if ( ! function_exists( 'wpbp_setup' ) ) :
+	/**
+	 * Sets up theme defaults and registers support for various WordPress features.
+	 *
+	 * Note that this function is hooked into the after_setup_theme hook, which
+	 * runs before the init hook. The init hook is too late for some features, such
+	 * as indicating support for post thumbnails.
+	 */
+	function wpbp_setup() {
+		/*
+		 * Make theme available for translation.
+		 * Translations can be filed in the /languages/ directory.
+		 * If you're building a theme based on WordPress Boilerplate 2.0, use a find and replace
+		 * to change 'wpbp' to the name of your theme in all the template files.
+		 */
+		load_theme_textdomain( 'wpbp', get_template_directory() . '/languages' );
 
-	function __construct(){
-		/* Custom jQuery */
-		add_action( 'init', array(__CLASS__, 'CustomjQuery') );
-		/* Editor Styles */
-		add_action( 'init', array($this, 'addEditorStyles') );
-		/* Frontend Scripts */
-		add_action( 'wp_enqueue_scripts', array(__CLASS__, 'FrontendScripts') );
-		/* Theme Setup */
-		add_action( 'after_setup_theme', array(__CLASS__, 'ThemeSetup') );
+		// Add default posts and comments RSS feed links to head.
+		add_theme_support( 'automatic-feed-links' );
 
-		/* JPEG Image Quality */
-		add_filter( 'jpeg_quality', function(){return 90;} );
+		/*
+		 * Let WordPress manage the document title.
+		 * By adding theme support, we declare that this theme does not use a
+		 * hard-coded <title> tag in the document head, and expect WordPress to
+		 * provide it for us.
+		 */
+		add_theme_support( 'title-tag' );
 
-        /* Dashboard Columns */
-        //add_action( 'admin_head-index.php', array(__CLASS__, 'dashboardColumns') );
-
-        /* Remove script version from WordPress sources */
-        add_filter( 'script_loader_src', array(__CLASS__, 'removeScriptVersion'), 15, 1 );
-        add_filter( 'style_loader_src', array(__CLASS__, 'removeScriptVersion'), 15, 1 );
-
-        /* Load Scripts with defer attribut, could cause problems with some scripts */
-        add_filter( 'script_loader_tag', function ( $tag, $handle ) {
-
-            /*
-             * Here you can exclude plugins that cause problems with defer
-             * e.G. syntaxhighlighter = SyntaxHighlighter Evolved
-             */
-            if( strstr($tag, 'syntaxhighlighter') || is_admin() ) {
-                return $tag;
-            }
-
-            $tag = str_replace(' type=\'text/javascript\'', '', $tag);
-            $tag = str_replace('\'', '"', $tag);
-            return str_replace( ' src', ' defer="defer" src', $tag );
-        }, 10, 2);
-	}
-
-    /**
-     * Theme Setup with default Theme functions
-     */
-    public static function ThemeSetup(){
-
-        /* HTML5 Support */
-        add_theme_support('html5', array('comment-list', 'comment-form', 'search-form', 'gallery', 'caption'));
-
-		/* Thumbnail */
+		/*
+		 * Enable support for Post Thumbnails on posts and pages.
+		 *
+		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
+		 */
 		add_theme_support( 'post-thumbnails' );
-  		set_post_thumbnail_size( 150, 150 );
-		add_image_size( 'image', 640, 480, true );
 
-		/* Navigation */
-		register_nav_menus(array(
-			'primary' => __( 'Primary Navigation' )
-		));
+		// This theme uses wp_nav_menu() in one location.
+		register_nav_menus( array(
+			'menu-1' => esc_html__( 'Primary', 'wpbp' ),
+		) );
 
-		/* Sidebar */
-		register_sidebar(array(
-			'name' => __('Sidebar'),
-			'id' => 'sidebar',
-			'description' => __('Sidebar description'),
-			'before_widget' => '<div id="%1$s" class="widget %2$s">',
-			'after_widget' => '</div>',
-			'before_title' => '<h3>',
-			'after_title' => '</h3>'
-		));
+		/*
+		 * Switch default core markup for search form, comment form, and comments
+		 * to output valid HTML5.
+		 */
+		add_theme_support( 'html5', array(
+			'search-form',
+			'comment-form',
+			'comment-list',
+			'gallery',
+			'caption',
+		) );
 
-        /* Add Custom Background Support */
-        self::add_custom_background();
+		// Set up the WordPress core custom background feature.
+		add_theme_support( 'custom-background', apply_filters( 'wpbp_custom_background_args', array(
+			'default-color' => 'ffffff',
+			'default-image' => '',
+		) ) );
 
-        /* Add Custom Header Support */
-        self::add_custom_header();
+		// Add theme support for selective refresh for widgets.
+		add_theme_support( 'customize-selective-refresh-widgets' );
+
+		/**
+		 * Add support for core custom logo.
+		 *
+		 * @link https://codex.wordpress.org/Theme_Logo
+		 */
+		add_theme_support( 'custom-logo', array(
+			'height'      => 250,
+			'width'       => 250,
+			'flex-width'  => true,
+			'flex-height' => true,
+		) );
 	}
+endif;
+add_action( 'after_setup_theme', 'wpbp_setup' );
 
-    /**
-     * Add Custom-Background Support for this Theme
-     */
-    public static function add_custom_background(){
+/**
+ * Set the content width in pixels, based on the theme's design and stylesheet.
+ *
+ * Priority 0 to make it available to lower priority callbacks.
+ *
+ * @global int $content_width
+ */
+function wpbp_content_width() {
+	// This variable is intended to be overruled from themes.
+	// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
+	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+	$GLOBALS['content_width'] = apply_filters( 'wpbp_content_width', 640 );
+}
+add_action( 'after_setup_theme', 'wpbp_content_width', 0 );
 
-        /*
-         * Allowed Arguments:
-         *
-         *  'default-color'          => '',
-	     *  'default-image'          => '',
-	     *  'wp-head-callback'       => '_custom_background_cb',
-	     *  'admin-head-callback'    => '',
-	     *  'admin-preview-callback' => ''
-         *
-         */
+/**
+ * Register widget area.
+ *
+ * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
+ */
+function wpbp_widgets_init() {
+	register_sidebar( array(
+		'name'          => esc_html__( 'Sidebar', 'wpbp' ),
+		'id'            => 'sidebar-1',
+		'description'   => esc_html__( 'Add widgets here.', 'wpbp' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+}
+add_action( 'widgets_init', 'wpbp_widgets_init' );
 
-        $args = array(
-            'default-color' => 'ffffff',
-            'default-image' => ''
-        );
+/**
+ * Enqueue scripts and styles.
+ */
+function wpbp_scripts() {
+	wp_enqueue_style( 'wpbp-style', get_stylesheet_uri() );
 
-        add_theme_support('custom-background', $args);
-    }
+	wp_enqueue_script( 'wpbp-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
-    /**
-     * Add Custom-Header Support for this Theme
-     */
-    public static function add_custom_header(){
+	wp_enqueue_script( 'wpbp-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
-        /*
-         * Allowed Arguments:
-         *
-         *  'default-image'          => '',
-	     *  'random-default'         => false,
-	     *  'width'                  => 0,
-	     *  'height'                 => 0,
-	     *  'flex-height'            => false,
-	     *  'flex-width'             => false,
-	     *  'default-text-color'     => '',
-	     *  'header-text'            => true,
-	     *  'uploads'                => true,
-	     *  'wp-head-callback'       => '',
-	     *  'admin-head-callback'    => '',
-	     *  'admin-preview-callback' => '',
-         *
-         */
-
-        $args = array(
-            'width' => 800,
-            'height' => 350,
-            'uploads' => true,
-            'header-text' => false,
-            'default-image' => get_template_directory_uri().'/img/default-header.jpg'
-        );
-
-        add_theme_support('custom-header', $args);
-    }
-
-    /**
-     * Add Editor-Styles for TinyMCE
-     */
-    public static function addEditorStyles(){
-		add_editor_style( 'custom-editor-styles.css' );
+	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+		wp_enqueue_script( 'comment-reply' );
 	}
+}
+add_action( 'wp_enqueue_scripts', 'wpbp_scripts' );
 
-    /**
-     * Use jQuery CDN instead of WordPress own jQuery
-     */
-    public static function CustomjQuery(){
-		if ( !is_admin() ){
-    		wp_deregister_script('jquery');
-    		wp_register_script('jquery', get_stylesheet_directory_uri().'/js/vendor/jquery-'.self::$jQuery_Version.'.js', array(), self::$jQuery_Version, self::$jQuery_in_Footer);
-      		wp_enqueue_script('jquery');
-      	}
-	}
+/**
+ * Implement the Custom Header feature.
+ */
+require get_template_directory() . '/inc/custom-header.php';
 
-    /**
-     * Use jQuery and other Scripts in your Frontend
-     */
-    public static function FrontendScripts(){
-		wp_enqueue_script( 'jquery' );
+/**
+ * Custom template tags for this theme.
+ */
+require get_template_directory() . '/inc/template-tags.php';
 
-        wp_register_script('wp-h5bp-plugins', get_stylesheet_directory_uri().'/js/plugins.js', array('jquery'), self::$ver, true);
-        wp_register_script('wp-h5bp-main', get_stylesheet_directory_uri().'/js/main.js', array('jquery', 'wp-h5bp-plugins'), self::$ver, true);
+/**
+ * Functions which enhance the theme by hooking into WordPress.
+ */
+require get_template_directory() . '/inc/template-functions.php';
 
-        wp_enqueue_script('wp-h5bp-plugins');
-        wp_enqueue_script('wp-h5bp-main');
-	}
+/**
+ * Customizer additions.
+ */
+require get_template_directory() . '/inc/customizer.php';
 
-    /**
-     * Dashboard Columns
-     */
-    public static function dashboardColumns(){
-        add_screen_option(
-            'layout_columns',
-            array(
-                'max'     => 4,
-                'default' => 2
-            )
-        );
-    }
-
-    /**
-     * Remove query strings from javascript ressources
-     *
-     * @param $src
-     * @return string
-     */
-    public static function removeScriptVersion($src)
-    {
-        // Exclude ressources from fonts.googleapis.com
-        if( strstr($src, 'fonts.googleapis.com') || is_admin() ) {
-            return $src;
-        }
-
-        $parts = explode('?', $src);
-        return $parts[0];
-    }
-
+/**
+ * Load Jetpack compatibility file.
+ */
+if ( defined( 'JETPACK__VERSION' ) ) {
+	require get_template_directory() . '/inc/jetpack.php';
 }
 
-$WordPressBoilerplate = new WordPressBoilerplate();
+/**
+ * Load WooCommerce compatibility file.
+ */
+if ( class_exists( 'WooCommerce' ) ) {
+	require get_template_directory() . '/inc/woocommerce.php';
+}

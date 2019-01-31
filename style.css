@@ -467,15 +467,16 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-  border: 1px solid;
+  border: 0.0625rem solid;
   border-color: #ccc #ccc #bbb;
-  border-radius: 3px;
+  border-radius: 0.1875rem;
   background: #e6e6e6;
   color: rgba(0, 0, 0, 0.8);
   font-size: 12px;
   font-size: 0.75rem;
   line-height: 1;
-  padding: .6em 1em .4em; }
+  padding: .6em 1em .4em;
+  outline: 0; }
   button:hover,
   input[type="button"]:hover,
   input[type="reset"]:hover,
@@ -507,9 +508,10 @@ input[type="datetime-local"],
 input[type="color"],
 textarea {
   color: #666;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  padding: 3px; }
+  border: 0.0625rem solid #ccc;
+  border-radius: 0.1875rem;
+  padding: 0.1875rem;
+  outline: 0; }
   input[type="text"]:focus,
   input[type="email"]:focus,
   input[type="url"]:focus,
@@ -529,7 +531,7 @@ textarea {
     color: #111; }
 
 select {
-  border: 1px solid #ccc; }
+  border: 0.0625rem solid #ccc; }
 
 textarea {
   width: 100%; }

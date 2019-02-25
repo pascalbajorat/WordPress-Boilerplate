@@ -31,10 +31,24 @@
 			if ( is_front_page() && is_home() ) :
 				?>
 				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+
+				<?php /* Use the following code to implement a logo-image with screenreader text
+
+                 <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php bloginfo('template_url') ?>/images/xuits.png" alt="<?php echo esc_attr( get_bloginfo('sitename') ) ?>" title="<?php echo esc_attr( get_bloginfo('sitename') ) ?>"><span class="screen-reader-text"><?php echo esc_html( get_bloginfo('sitename') ) ?></span></a></h1>
+
+                 */ ?>
+
 				<?php
 			else :
 				?>
 				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+
+				<?php /* Use the following code to implement a logo-image for sub-pages
+
+                 <p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php bloginfo('template_url') ?>/images/xuits.png" alt="<?php echo esc_attr( get_bloginfo('sitename') ) ?>" title="<?php echo esc_attr( get_bloginfo('sitename') ) ?>"><span class="screen-reader-text"><?php echo esc_html( get_bloginfo('sitename') ) ?></span></a></p>
+
+                 */ ?>
+
 				<?php
 			endif;
 			$wpbp_description = get_bloginfo( 'description', 'display' );

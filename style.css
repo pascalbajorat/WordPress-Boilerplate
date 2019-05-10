@@ -6174,6 +6174,26 @@ a {
   display: block; }
 
 /*--------------------------------------------------------------
+## Basics
+--------------------------------------------------------------*/
+a:hover, a:active, a:focus {
+  outline: 0; }
+
+a, a:hover, a:focus, input, input:hover, input:focus, button, button:hover, button:focus {
+  -webkit-transition: all 300ms ease-in-out;
+  -moz-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out; }
+
+::-moz-selection {
+  background: #21759b;
+  color: #fff; }
+
+::selection {
+  background: #21759b;
+  color: #fff; }
+
+/*--------------------------------------------------------------
 # Infinite scroll
 --------------------------------------------------------------*/
 /* Globally hidden elements when Infinite Scroll is supported and in use. */

@@ -10,3 +10,18 @@
 ## Comments
 --------------------------------------------------------------*/
 @import "primary/comments";
+
+/*--------------------------------------------------------------
+## Basics
+--------------------------------------------------------------*/
+
+a:hover, a:active, a:focus { outline: 0 }
+
+a, input, button {
+  &, &:hover, &:focus {
+    @include transition();
+  }
+}
+
+::-moz-selection { background: $color__main; color:#fff;}
+::selection { background: $color__main; color:#fff; }

@@ -34,7 +34,7 @@
 
 				<?php /* Use the following code to implement a logo-image with screenreader text
 
-                 <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php bloginfo('template_url') ?>/images/xuits.png" alt="<?php echo esc_attr( get_bloginfo('sitename') ) ?>" title="<?php echo esc_attr( get_bloginfo('sitename') ) ?>"><span class="screen-reader-text"><?php echo esc_html( get_bloginfo('sitename') ) ?></span></a></h1>
+                 <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php bloginfo('template_url') ?>/images/logo.png" alt="<?php echo esc_attr( get_bloginfo('sitename') ) ?>" title="<?php echo esc_attr( get_bloginfo('sitename') ) ?>"><span class="screen-reader-text"><?php echo esc_html( get_bloginfo('sitename') ) ?></span></a></h1>
 
                  */ ?>
 
@@ -45,7 +45,7 @@
 
 				<?php /* Use the following code to implement a logo-image for sub-pages
 
-                 <p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php bloginfo('template_url') ?>/images/xuits.png" alt="<?php echo esc_attr( get_bloginfo('sitename') ) ?>" title="<?php echo esc_attr( get_bloginfo('sitename') ) ?>"><span class="screen-reader-text"><?php echo esc_html( get_bloginfo('sitename') ) ?></span></a></p>
+                 <p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php bloginfo('template_url') ?>/images/logo.png" alt="<?php echo esc_attr( get_bloginfo('sitename') ) ?>" title="<?php echo esc_attr( get_bloginfo('sitename') ) ?>"><span class="screen-reader-text"><?php echo esc_html( get_bloginfo('sitename') ) ?></span></a></p>
 
                  */ ?>
 

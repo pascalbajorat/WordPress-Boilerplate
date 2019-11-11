@@ -123,6 +123,8 @@ function wpbp_scripts() {
 	wp_enqueue_style( 'wpbp-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'wpbp-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_style( 'fontawesome-fontface', get_template_directory_uri() . '/webfonts/fontawesome-fontface.css', array());
+	wp_enqueue_style( 'fontawesome', get_template_directory_uri() . '/webfonts/fontawesome.min.css', array('fontawesome-fontface') );
 
 	wp_enqueue_script( 'wpbp-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 

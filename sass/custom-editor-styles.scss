@@ -12,6 +12,14 @@
   -webkit-box-sizing: border-box;
 }
 
+.wp-admin {
+  .wp-block {
+    max-width:100%!important;
+  }
+}
+
+/* Old TinyMCE Settings */
+
 body#tinymce {
   font-size: rem-calc(20px)!important;
   background: $color__background-body;

@@ -167,3 +167,15 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
+
+/**
+ * Add backend styles for Gutenberg.
+ */
+add_action( 'enqueue_block_editor_assets', 'wpbp_add_gutenberg_assets' );
+
+/**
+ * Load Gutenberg stylesheet.
+ */
+function wpbp_add_gutenberg_assets() {
+	wp_enqueue_style( 'wpbp-gutenberg', get_theme_file_uri( '/sass/custom-editor-styles.css' ), false );
+}

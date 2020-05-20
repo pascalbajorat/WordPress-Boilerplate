@@ -1,9 +1,19 @@
 p {
 	margin-bottom: 1.5em;
+	margin-top:0;
+
+	&:last-child {
+		margin-bottom:0;
+	}
 }
 
 dfn, cite, em, i {
 	font-style: italic;
+}
+
+ul, ol {
+	margin:0;
+	padding:0;
 }
 
 blockquote {

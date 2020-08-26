@@ -19,21 +19,15 @@
   }
 }
 
-/* Editor Settings (former TinyMCE) */
+/* Old TinyMCE Settings */
 
-#editor {
+.interface-interface-skeleton__content {
   font-size: rem-calc(20px)!important;
-  background: $color__background-body;
-  padding: 40px !important;
-  margin: 0 auto;
-  color: #000;
   font-family: $font__main;
   font-smooth: always;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: $font__line-height-body;
-  max-width: 765px;
-
 
   h1, h2, h3, h4, h5, h6, p {
     -webkit-hyphens: auto;

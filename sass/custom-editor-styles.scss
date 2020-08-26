@@ -1,6 +1,7 @@
 @import "normalize";
 @import "variables-site/colors";
 @import "variables-site/typography";
+@import "typography/headings";
 @import "mixins/mixins-master";
 
 @import "site/primary/posts-and-pages";
@@ -18,9 +19,9 @@
   }
 }
 
-/* Old TinyMCE Settings */
+/* Editor Settings (former TinyMCE) */
 
-body#tinymce {
+#editor {
   font-size: rem-calc(20px)!important;
   background: $color__background-body;
   padding: 40px !important;
@@ -39,6 +40,7 @@ body#tinymce {
     -moz-hyphens: auto;
     -ms-hyphens: auto;
     hyphens: auto;
+    font-family: $font__main;
   }
 
   h1 {

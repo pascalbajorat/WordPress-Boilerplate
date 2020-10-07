@@ -2894,12 +2894,6 @@ a:hover, a:active {
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
-.main-navigation {
-  clear: both;
-  display: block;
-  float: left;
-  width: 100%;
-}
 .main-navigation ul {
   display: none;
   list-style: none;
@@ -2908,7 +2902,6 @@ a:hover, a:active {
 }
 .main-navigation ul ul {
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-  float: left;
   position: absolute;
   top: 100%;
   left: -999em;
@@ -2929,7 +2922,7 @@ a:hover, a:active {
   left: auto;
 }
 .main-navigation li {
-  float: left;
+  display: inline-block;
   position: relative;
 }
 .main-navigation a {
@@ -3087,8 +3080,8 @@ a:hover, a:active {
   display: block;
 }
 
-.post,
-.page {
+div.post,
+div.page {
   margin: 0 0 1.5em;
 }
 

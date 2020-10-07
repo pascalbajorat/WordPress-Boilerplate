@@ -1,8 +1,4 @@
 .main-navigation {
-	clear: both;
-	display: block;
-	float: left;
-	width: 100%;
 
 	ul {
 		display: none;
@@ -12,7 +8,6 @@
 
 		ul {
 			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-			float: left;
 			position: absolute;
 			top: 100%;
 			left: -999em;
@@ -50,7 +45,7 @@
 	}
 
 	li {
-		float: left;
+		display:inline-block;
 		position: relative;
 
 		&:hover > a,

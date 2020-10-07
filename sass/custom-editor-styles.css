@@ -339,8 +339,8 @@ template {
   display: block;
 }
 
-.post,
-.page {
+div.post,
+div.page {
   margin: 0 0 1.5em;
 }
 

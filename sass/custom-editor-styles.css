@@ -385,22 +385,6 @@ div.page {
   hyphens: auto;
   font-family: sans-serif;
 }
-.interface-interface-skeleton__content h1 {
-  font-size: 1.75rem !important;
-  margin: 0 0 0.5em 0;
-}
-.interface-interface-skeleton__content h2 {
-  font-size: 1.5rem !important;
-  font-family: sans-serif;
-  margin: 0;
-  float: left;
-  display: inline-block;
-  font-weight: normal;
-  text-transform: uppercase;
-  max-width: 32%;
-  padding-right: 5%;
-  line-height: 1;
-}
 .interface-interface-skeleton__content p {
   margin: 0 0 0.5em 0;
   font-family: sans-serif;

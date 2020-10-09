@@ -37,24 +37,6 @@
     font-family: $font__main;
   }
 
-  h1 {
-    font-size:rem-calc(28px)!important;
-    margin:0 0 .5em 0;
-  }
-
-  h2 {
-    font-size:rem-calc(24px)!important;
-    font-family:$font__main;
-    margin:0;
-    float:left;
-    display:inline-block;
-    font-weight:normal;
-    text-transform:uppercase;
-    max-width:32%;
-    padding-right:5%;
-    line-height:1;
-  }
-
   p {
     margin:0 0 .5em 0;
     font-family:$font__main;

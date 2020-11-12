@@ -370,7 +370,7 @@ div.page {
 }
 
 /* Old TinyMCE Settings */
-.interface-interface-skeleton__content {
+.edit-post-visual-editor {
   font-size: 1.25rem !important;
   font-family: sans-serif;
   font-smooth: always;
@@ -378,20 +378,20 @@ div.page {
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.5;
 }
-.interface-interface-skeleton__content h1, .interface-interface-skeleton__content h2, .interface-interface-skeleton__content h3, .interface-interface-skeleton__content h4, .interface-interface-skeleton__content h5, .interface-interface-skeleton__content h6, .interface-interface-skeleton__content p {
+.edit-post-visual-editor h1, .edit-post-visual-editor h2, .edit-post-visual-editor h3, .edit-post-visual-editor h4, .edit-post-visual-editor h5, .edit-post-visual-editor h6, .edit-post-visual-editor p {
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
   -ms-hyphens: auto;
   hyphens: auto;
   font-family: sans-serif;
 }
-.interface-interface-skeleton__content p {
+.edit-post-visual-editor p {
   margin: 0 0 0.5em 0;
   font-family: sans-serif;
   line-height: 1.2;
   font-size: 1.25rem !important;
 }
-.interface-interface-skeleton__content a {
+.edit-post-visual-editor a {
   color: #007ed4;
   text-decoration: underline !important;
   -webkit-transition: all 300ms ease-in-out;
@@ -399,19 +399,19 @@ div.page {
   -o-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
 }
-.interface-interface-skeleton__content small {
+.edit-post-visual-editor small {
   color: #000;
   font-size: 0.8em;
 }
-.interface-interface-skeleton__content a:hover {
+.edit-post-visual-editor a:hover {
   color: #009cd4;
   text-decoration: underline;
 }
-.interface-interface-skeleton__content img {
+.edit-post-visual-editor img {
   max-width: 100%;
   height: auto;
 }
-.interface-interface-skeleton__content pre {
+.edit-post-visual-editor pre {
   color: #100;
   background-color: #f9f9f9;
   border: 1px solid silver;

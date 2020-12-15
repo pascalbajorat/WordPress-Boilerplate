@@ -4,3 +4,139 @@
 .bypostauthor {
 	display: block;
 }
+
+.form-submit input#submit {
+	border:none;
+	outline:0;
+	padding:rem-calc(10px 20px)!important;
+	cursor:pointer;
+	font-size:rem-calc(17px);
+}
+
+.comment-form-comment {
+	width:100%;
+}
+
+.comment-form {
+	@media screen and (min-width: 767px) {
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-flex-flow: row wrap;
+		-ms-flex-flow: row wrap;
+		flex-flow: row wrap;
+	}
+}
+
+.comment-form-author,
+.comment-form-email,
+.comment-form-url {
+	@media screen and (min-width: 767px) {
+		-webkit-flex: 1;
+		-ms-flex: 1;
+		flex: 1;
+		padding-right:rem-calc(10px);
+	}
+
+	@media screen and (max-width: 767px) {
+		input {
+			width:100%;
+		}
+	}
+}
+
+.comment-form p.form-submit {
+	width:100%;
+}
+
+.comment-form-url {
+	input {
+		width:100%;
+	}
+
+	@media screen and (min-width: 767px) {
+		padding-right:0;
+	}
+}
+
+#comments {
+	padding:rem-calc(40px 0);
+
+	@media screen and (max-width: 767px) {
+		padding:rem-calc(20px 0);
+	}
+
+	#reply-title {
+		display:none;
+	}
+}
+
+#commentform {
+	textarea#comment {
+		padding:rem-calc(10px);
+		font-size:rem-calc(17px);
+		margin-top:rem-calc(5px);
+		border-radius:0;
+	}
+
+	input[type="text"],
+	input[type="url"],
+	input[type="email"], {
+		border-radius:0;
+	}
+}
+
+.comments-title {
+	margin-bottom:rem-calc(35px);
+}
+
+
+.comment-list {
+	padding:0;
+	margin:0;
+
+	li {
+		list-style:none;
+		padding-left: rem-calc(33px);
+	}
+
+	.comment-meta {
+		padding:rem-calc(10px 15px);
+		background: #f7f7f7;
+		border-top:rem-calc(1px) solid $color__background-screen;
+		margin:rem-calc(-15px -15px 15px -15px);
+		font-size:rem-calc(15px);
+
+		a {
+			text-decoration:none;
+			color:$color__text-main;
+			font-size:rem-calc(15px);
+		}
+	}
+
+	.comment-author,
+	.comment-metadata {
+		display:inline-block!important;
+	}
+
+	.comment-body {
+		background:$color__background-screen;
+		padding:rem-calc(15px);
+		margin-bottom:rem-calc(20px);
+		position:relative;
+
+		p:last-child {
+			margin-bottom:0;
+		}
+
+		.avatar {
+			position: absolute;
+			top: 0;
+			left: rem-calc(-32px);
+		}
+	}
+
+	.reply {
+		text-align:right;
+	}
+}

@@ -5897,6 +5897,11 @@ div.page {
   padding: 0;
   margin: 0;
 }
+@media screen and (max-width: 767px) {
+  .comment-list {
+    padding-left: 2.1875rem;
+  }
+}
 .comment-list li {
   list-style: none;
   padding-left: 2.0625rem;

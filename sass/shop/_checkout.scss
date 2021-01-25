@@ -182,7 +182,8 @@ form.checkout,
 	display:block!important;
 }
 
-.woocommerce table.shop_table {
+.woocommerce table.shop_table,
+.woocommerce-customer-details address {
 	border-radius:0;
 	background:#fff;
 	font-size: rem-calc(20px);
@@ -191,4 +192,26 @@ form.checkout,
 .wc_payment_methods {
 	margin-bottom:rem-calc(35px)!important;
 	border-bottom:0!important;
+}
+
+.woocommerce-order {
+	h2 {
+		font-size:rem-calc(30px);
+	}
+
+	ul.order_details,
+	.woocommerce-notice {
+		text-align:center;
+
+		li {
+			margin-right:0;
+			padding-right:0;
+		}
+	}
+}
+
+.woocommerce-customer-details :last-child,
+.woocommerce-order-details :last-child,
+.woocommerce-order-downloads :last-child {
+	margin-bottom:rem-calc(20px)!important;;
 }
